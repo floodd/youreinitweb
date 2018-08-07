@@ -213,7 +213,7 @@ function loadDoc(marker, place) {
 		}
 	}
   };
-  xhttp.open("GET", "https://powerful-falls-22457.herokuapp.com/api/bathroom-details/findByPlaceId/ChIJN1t_tDeuEmsRUsoyG83frY4", true);
+  xhttp.open("GET", "https://powerful-falls-22457.herokuapp.com/api/bathroom-details/findByPlaceId/" + place.id, true);
   xhttp.send();
 }
 
@@ -261,9 +261,9 @@ function sendDoc(){
 						'}';
 	}
 	
-
+	var id= document.getElementById("navHeader").name;
 	var body = '{'+
-			'"placeId": "ChIJN1t_tDeuEmsRUsoyG83frY4",'+
+			'"placeId": "'+id+'",'+
 			'"mensRoom": {'+
 				'"exists": ' + arguments[1] +','+
 				'"handicap": '+ arguments[2]+','+
@@ -312,7 +312,6 @@ function sendDoc(){
 		};
 		xhttp.open("PUT", "https://powerful-falls-22457.herokuapp.com/api/bathroom-details/add-bathroom-details", true);
 		xhttp.setRequestHeader('Content-type', 'application/json');
-						console.log(body);
 		xhttp.send(body);
 }
 
